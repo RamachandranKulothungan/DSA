@@ -11,4 +11,5 @@ class Solution(object):
             number_map[i] = 1
         return False
 
-print(Solution().containsDuplicate([1,2,3,4]))
+
+print(Solution().containsDuplicate([1, 2, 3, 4]))

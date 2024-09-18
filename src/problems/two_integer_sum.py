@@ -9,4 +9,5 @@ class Solution:
             value_map[nums[i]] = i
             print(value_map)
 
-print(Solution().twoSum([3,4,5,6], 7))
+
+print(Solution().twoSum([3, 4, 5, 6], 7))

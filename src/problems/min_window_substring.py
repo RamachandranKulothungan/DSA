@@ -5,7 +5,7 @@ class Solution(object):
         :type t: str
         :rtype: str
         """
-        #Inefficient due to s_map
+        # Inefficient due to s_map
         # if t == s:
         #     return t
         # if len(t) > len(s):
@@ -32,7 +32,7 @@ class Solution(object):
         #         if right != len(s):
         #             s_map[s[right]] = s_map.get(s[right], 0) + 1
         #             if s_map[s[right]] == t_map.get(s[right], 0):
-        #                 has_match = has_match + 1 
+        #                 has_match = has_match + 1
         #         right = right+1
         # return min_substr
 
@@ -44,10 +44,10 @@ class Solution(object):
         for ch in t:
             t_map[ch] = t_map.get(ch, 0) + 1
         required_matches = len(t_map)
-        left,right = 0,0
-        has_match=0
+        left, right = 0, 0
+        has_match = 0
         min_substr = ""
-        min_window_length = float('inf')
+        min_window_length = float("inf")
         while right <= len(s):
             if has_match == required_matches:
                 if min_window_length > len(s[left:right]):
@@ -64,5 +64,5 @@ class Solution(object):
                         t_map[s[right]] = t_map[s[right]] - 1
                         if t_map[s[right]] == 0:
                             has_match = has_match + 1
-                right = right+1
+                right = right + 1
         return min_substr
