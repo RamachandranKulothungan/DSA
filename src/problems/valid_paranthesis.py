@@ -5,12 +5,8 @@ class Solution(object):
         :rtype: bool
         """
         stack_p = []
-        closeopen_p_map = {
-            ")": "(",
-            "}": "{",
-            "]": "["
-        }
-        opening_p_set = {"(","{","["}
+        closeopen_p_map = {")": "(", "}": "{", "]": "["}
+        opening_p_set = {"(", "{", "["}
         for ch in s:
             if ch in opening_p_set:
                 stack_p.append(ch)
