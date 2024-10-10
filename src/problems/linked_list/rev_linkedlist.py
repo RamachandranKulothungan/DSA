@@ -1,4 +1,4 @@
-from linked_list_helper import ListNode
+from problems.linked_list.linked_list_helper import ListNode
 
 
 class Solution:
