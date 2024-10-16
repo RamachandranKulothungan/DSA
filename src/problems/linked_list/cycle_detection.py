@@ -5,7 +5,7 @@
 #         self.next = next
 
 class Solution:
-    def hasCycle(self, head: Optional[ListNode]) -> bool:
+    def hasCycle(self, head) -> bool:
         slow = head
         if head:
             fast = head.next
