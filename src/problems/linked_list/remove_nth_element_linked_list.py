@@ -4,6 +4,7 @@
 #         self.val = val
 #         self.next = next
 
+
 class Solution:
     def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
         t = head
@@ -11,7 +12,7 @@ class Solution:
         while t:
             count = count + 1
             t = t.next
-        
+
         index_left = count - n
         print("count", count)
         print("index_left", index_left)
@@ -27,6 +28,5 @@ class Solution:
                     break
                 prev = t
                 t = t.next
-                i = i+1
+                i = i + 1
         return head
-

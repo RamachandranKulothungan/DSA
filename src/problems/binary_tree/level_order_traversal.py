@@ -18,7 +18,7 @@ class Solution(object):
         row = -1
         row_elements = 0
         level_traversal = []
-        while left<right:
+        while left < right:
             if row_elements == 0:
                 row_elements = right - left
                 row = row + 1
@@ -33,4 +33,3 @@ class Solution(object):
             left += 1
             row_elements -= 1
         return level_traversal
-        

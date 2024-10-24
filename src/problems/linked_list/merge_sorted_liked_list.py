@@ -15,11 +15,11 @@ class Solution(object):
         count_none = 0
         for temp in temp_list:
             if not temp:
-                count_none = count_none+1
+                count_none = count_none + 1
         # print("count_none", count_none)
 
-        while count_none<len(lists):
-            min_value = float('inf')
+        while count_none < len(lists):
+            min_value = float("inf")
             for i in range(len(temp_list)):
                 curr = temp_list[i]
                 if curr:
@@ -34,7 +34,7 @@ class Solution(object):
             min_node = temp_list[min_index]
             temp_list[min_index] = temp_list[min_index].next
             if not temp_list[min_index]:
-                count_none = count_none+1
+                count_none = count_none + 1
 
             min_node.next = None
 

@@ -33,7 +33,7 @@ class Solution(object):
             q1.append(curr1.right)
             q2.append(curr2.right)
         return True
- 
+
     def isSubtree(self, root, subRoot):
         q = [root]
         while q:
@@ -44,4 +44,3 @@ class Solution(object):
                 q.append(curr.left)
                 q.append(curr.right)
         return False
-        

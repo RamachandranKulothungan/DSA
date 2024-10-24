@@ -4,6 +4,8 @@ class TreeNode(object):
         self.val = val
         self.left = left
         self.right = right
+
+
 class Solution(object):
     def invertTree(self, root):
         """
@@ -13,18 +15,17 @@ class Solution(object):
         if not root:
             return root
         queue = [root]
-        start=0
+        start = 0
         end = 0
-        while start<=end:
+        while start <= end:
             temp = queue[start].left
             queue[start].left = queue[start].right
             queue[start].right = temp
-            if queue[start].left: 
+            if queue[start].left:
                 queue.append(queue[start].left)
                 end = end + 1
-            if queue[start].right: 
+            if queue[start].right:
                 queue.append(queue[start].right)
                 end = end + 1
             start = start + 1
         return root
-        

@@ -4,16 +4,17 @@
 #         self.val = val
 #         self.next = next
 
+
 class Solution:
     def hasCycle(self, head) -> bool:
         slow = head
         if head:
             fast = head.next
         while slow and fast:
-            if slow==fast:
+            if slow == fast:
                 return True
             slow = slow.next
             fast = fast.next
             if fast:
                 fast = fast.next
-        return False 
+        return False
