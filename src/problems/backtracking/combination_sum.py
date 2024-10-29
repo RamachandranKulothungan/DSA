@@ -35,30 +35,30 @@ All elements of candidates are distinct.
 1 <= target <= 40
 """
 
+
 class Solution:
     def __init__(self):
         self.candidates = []
         self.len_candidates = 0
 
     def rec_combination_sum(self, i, target):
-        if target==0:
+        if target == 0:
             return [[]]
         if i == self.len_candidates:
             return []
         res = target
         total_sol = []
         curr = []
-        while target>=0:
-            poss_sol = self.rec_combination_sum(i+1, target)
+        while target >= 0:
+            poss_sol = self.rec_combination_sum(i + 1, target)
             if poss_sol:
                 for sol in poss_sol:
                     total_sol.append(sol + curr)
             curr.append(self.candidates[i])
             target = target - self.candidates[i]
         return total_sol
-    
+
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
         self.candidates = candidates
         self.len_candidates = len(candidates)
         return self.rec_combination_sum(0, target)
-        
