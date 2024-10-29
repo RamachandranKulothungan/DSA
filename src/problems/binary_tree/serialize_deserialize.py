@@ -6,10 +6,11 @@
 #         self.right = None
 # from json import dumps, loads
 
+
 class Codec:
     def serialize(self, root):
         """Encodes a tree to a single string.
-        
+
         :type root: TreeNode
         :rtype: str
         """
@@ -22,8 +23,8 @@ class Codec:
         stream = []
         while left < right and non_null_nodes > 0:
             curr = q[left]
-            left+=1
-            right+=2
+            left += 1
+            right += 2
             stream.append(curr.val if curr else None)
             if curr is None:
                 continue
@@ -31,7 +32,7 @@ class Codec:
             q.append(curr.left)
             q.append(curr.right)
             if curr.left and curr.right:
-                non_null_nodes +=2
+                non_null_nodes += 2
                 continue
             if not curr.left and not curr.right:
                 continue
@@ -40,7 +41,7 @@ class Codec:
 
     def deserialize(self, data):
         """Decodes your encoded data to tree.
-        
+
         :type data: str
         :rtype: TreeNode
         """
@@ -58,7 +59,7 @@ class Codec:
         node_list = [root]
         while j < len(data_list):
             if node_list[i] == None:
-                i+=1
+                i += 1
                 continue
             if data_list[j] is None:
                 node_list[i].left = None

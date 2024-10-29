@@ -17,6 +17,7 @@ Both the left and right subtrees are also binary search trees.
 #         self.left = left
 #         self.right = right
 
+
 class Solution:
     def count(self, root):
         left_count = 0
@@ -25,7 +26,7 @@ class Solution:
         right_count = 0
         if root.right:
             right_count = self.count(root.right)
-        return right_count+left_count+1
+        return right_count + left_count + 1
 
     def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
         left_count = 0
@@ -40,5 +41,3 @@ class Solution:
             return root.val
         if k > left_count + 1:
             return self.kthSmallest(root.right, k - left_count - 1)
-
-        

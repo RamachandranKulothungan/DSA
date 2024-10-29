@@ -10,7 +10,9 @@ Your task consists of reorienting some roads such that each city can visit the c
 
 It's guaranteed that each city can reach city 0 after reorder.
 """
+
 # https://leetcode.com/problems/reorder-routes-to-make-all-paths-lead-to-the-city-zero/
+
 
 class Solution:
     def minReorder(self, n, connections):
@@ -23,8 +25,12 @@ class Solution:
         incoming_connections_map = {}
 
         for conn in connections:
-            outgoing_connections_map[conn[0]] = outgoing_connections_map.get(conn[0], []) + [conn[1]]
-            incoming_connections_map[conn[1]] = incoming_connections_map.get(conn[1], []) + [conn[0]]
+            outgoing_connections_map[conn[0]] = outgoing_connections_map.get(
+                conn[0], []
+            ) + [conn[1]]
+            incoming_connections_map[conn[1]] = incoming_connections_map.get(
+                conn[1], []
+            ) + [conn[0]]
         # print(outgoing_connections_map)
         # print(incoming_connections_map)
         nodes = [(0, 0)]
@@ -43,16 +49,16 @@ class Solution:
                     # print(f'add and reverse invalid connecting node {curr} to {invalid_node}')
                     nodes.append((invalid_node, curr))
                     count += 1
-                    right+=1
+                    right += 1
             if incoming_connections_map.get(curr):
                 for valid_node in incoming_connections_map[curr]:
                     if valid_node == prev:
                         continue
                     # print(f'add valid connecting node {valid_node} to {curr}')
                     nodes.append((valid_node, curr))
-                    right+=1
+                    right += 1
 
-            #Takes more time due to extra empty nodes
+            # Takes more time due to extra empty nodes
             # for i in range(n):
             #     if i == prev:
             #         continue
@@ -66,6 +72,3 @@ class Solution:
             #         count += 1
             #         right+=1
         return count
-
-        
-        

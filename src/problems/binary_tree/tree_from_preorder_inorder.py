@@ -5,6 +5,7 @@ class TreeNode:
         self.left = left
         self.right = right
 
+
 class Solution:
     def buildTreeRec(self, p_l, p_r, i_l, i_r):
         if p_r == p_l:
@@ -17,7 +18,9 @@ class Solution:
         # print(preorder[p_l: p_r], inorder[i_l: i_r], root, index)
         root_tree = self.buildTreeRec(p_l, p_l + 1, i_l + length, i_l + length + 1)
         root_left_tree = self.buildTreeRec(p_l + 1, p_l + 1 + length, i_l, i_l + length)
-        root_right_tree = self.buildTreeRec(p_l + 1 + length, p_r, i_l + length + 1 , i_r)
+        root_right_tree = self.buildTreeRec(
+            p_l + 1 + length, p_r, i_l + length + 1, i_r
+        )
         root_tree.left = root_left_tree
         root_tree.right = root_right_tree
         return root_tree
@@ -26,6 +29,7 @@ class Solution:
         self.preorder = preorder
         self.inorder = inorder
         return self.buildTreeRec(0, len(preorder), 0, len(inorder))
+
 
 Solution().buildTree([3, 9, 20, 15, 7], [9, 3, 15, 20, 7])
 
