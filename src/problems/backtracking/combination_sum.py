@@ -58,7 +58,7 @@ class Solution:
             target = target - self.candidates[i]
         return total_sol
 
-    def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
+    def combinationSum(self, candidates, target):
         self.candidates = candidates
         self.len_candidates = len(candidates)
         return self.rec_combination_sum(0, target)

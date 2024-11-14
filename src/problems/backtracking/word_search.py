@@ -7,7 +7,7 @@ horizontally or vertically neighboring. The same letter cell may not be used mor
 
 
 class Solution:
-    def exist(self, board: List[List[str]], word: str) -> bool:
+    def exist(self, board, word) -> bool:
         size = (len(board), len(board[0]))
         visited = [[False for x in range(size[1])] for x in range(size[0])]
 
