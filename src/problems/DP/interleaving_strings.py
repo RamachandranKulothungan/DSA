@@ -26,7 +26,3 @@ class Solution:
                 if j > 0 and s2[j - 1] == s3[i + j - 1] and dp[i][j - 1]:
                     dp[i][j] = True
         return dp[len(s1)][len(s2)]
-
-import heapq
-
-heapq.hea
