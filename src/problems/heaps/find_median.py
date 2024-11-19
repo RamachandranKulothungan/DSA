@@ -14,11 +14,8 @@ double findMedian() returns the median of all elements so far.
 https://neetcode.io/problems/find-median-in-a-data-stream
 """
 
-
-
-
-
 import heapq
+
 
 class MedianFinder:
 
@@ -38,7 +35,7 @@ class MedianFinder:
                 heapq.heappush(self.heap_max, -1 * temp)
             else:
                 heapq.heappush(self.heap_max, -1 * num)
-            self.even = False        
+            self.even = False
         else:
             if num >= -1 * self.heap_max[0]:
                 heapq.heappush(self.heap_min, num)
@@ -51,6 +48,6 @@ class MedianFinder:
         print(self.heap_max)
         print(self.heap_min)
         if self.even:
-            return (self.heap_min[0] + -1 * self.heap_max[0])/2
+            return (self.heap_min[0] + -1 * self.heap_max[0]) / 2
         else:
             return -1 * self.heap_max[0]

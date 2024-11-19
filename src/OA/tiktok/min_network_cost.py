@@ -10,26 +10,28 @@ y = [y_1, y_2, ..., y_n]
 Similar problem: https://leetcode.com/problems/min-cost-to-connect-all-points/description/
 """
 
+
 class MyDict:
     def __init__(self):
         self.dict = {}
-    
+
     def __getitem__(self, key):
         if key in self.dict:
             return self.dict[key]
         return None
-    
+
     def __setitem__(self, key, value):
         self.dict[key] = value
-    
+
     def __repr__(self):
         return f"{self.dict}"
+
 
 class Solution:
 
     def __init__(self):
         self.parent = MyDict()
- 
+
     def root(self, k):
         if self.parent[k] is None:
             return k
@@ -38,9 +40,16 @@ class Solution:
 
     def minCostConnectPoints(self, points: List[List[int]]) -> int:
         edges = []
-        for i in range(len(points)-1):
-            for j in range(i+1, len(points)):
-                edges.append((i, j, abs(points[i][0] - points[j][0])+ abs(points[i][1] - points[j][1])))
+        for i in range(len(points) - 1):
+            for j in range(i + 1, len(points)):
+                edges.append(
+                    (
+                        i,
+                        j,
+                        abs(points[i][0] - points[j][0])
+                        + abs(points[i][1] - points[j][1]),
+                    )
+                )
         min_cost = 0
         sorted_edges = sorted(edges, key=lambda x: x[2])
         included_edges = []
@@ -52,5 +61,3 @@ class Solution:
                 self.parent[parent_i] = parent_j
                 included_edges.append(edge)
         return min_cost
-
-        

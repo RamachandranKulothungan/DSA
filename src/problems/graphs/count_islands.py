@@ -22,22 +22,26 @@ class Solution:
         visited = [[False for j in range(y)] for i in range(x)]
         islands = 0
 
-
         def dfs(i, j):
             visited[i][j] = True
-            coordinates = [(i + 1, j), (i - 1, j), (i, j+1), (i, j-1)]
+            coordinates = [(i + 1, j), (i - 1, j), (i, j + 1), (i, j - 1)]
             for neighbour in coordinates:
-                if neighbour[0] < x and neighbour[0] > -1 and neighbour[1] < y and neighbour[1] > -1:
+                if (
+                    neighbour[0] < x
+                    and neighbour[0] > -1
+                    and neighbour[1] < y
+                    and neighbour[1] > -1
+                ):
                     if grid[neighbour[0]][neighbour[1]] == "1":
                         if not visited[neighbour[0]][neighbour[1]]:
                             print(f"visiting neighbour {neighbour}")
                             dfs(*neighbour)
-    
+
         for i in range(x):
             for j in range(y):
                 if not visited[i][j]:
-                    if grid[i][j] == "1":  
-                        print(i, j)  
+                    if grid[i][j] == "1":
+                        print(i, j)
                         dfs(i, j)
                         islands += 1
         return islands

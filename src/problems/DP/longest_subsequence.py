@@ -31,20 +31,14 @@ class Solution:
         #     dp[f"{i}, {j}"] = max(skip_i, skip_j)
         #     return dp[f"{i}, {j}"]
         # return rec_lcs(0,0)
-        b1 = [["diag" for y in range(len(text2)+1)] for x in range(len(text1)+1)]
-        dp1 = [[0 for y in range(len(text2)+1)] for x in range(len(text1)+1)]
-        for i in range(1, len(text1)+1):
-            for j in range(1, len(text2)+1):
-                if text1[i-1] == text2[j-1]:
-                    dp1[i][j] = dp1[i-1][j-1]+1
+        dp1 = [[0 for y in range(len(text2) + 1)] for x in range(len(text1) + 1)]
+        for i in range(1, len(text1) + 1):
+            for j in range(1, len(text2) + 1):
+                if text1[i - 1] == text2[j - 1]:
+                    dp1[i][j] = dp1[i - 1][j - 1] + 1
                 else:
-                    if dp1[i-1][j] >= dp1[i][j-1]:
-                        b1[i][j] = "upwa"
-                        dp1[i][j] = dp1[i-1][j]
+                    if dp1[i - 1][j] >= dp1[i][j - 1]:
+                        dp1[i][j] = dp1[i - 1][j]
                     else:
-                        dp1[i][j] = dp1[i][j-1]
-                        b1[i][j] = "left"            
+                        dp1[i][j] = dp1[i][j - 1]
         return dp1[len(text1)][len(text2)]
-    
-
-        
