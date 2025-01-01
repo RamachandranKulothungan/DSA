@@ -36,6 +36,8 @@ class Solution:
         visited = {}
         for i in range(n):
             visited[i] = 0
+        # print(adj_list)
+        # print(visited)
 
         def dfs(node):
             visited[node] = 1
