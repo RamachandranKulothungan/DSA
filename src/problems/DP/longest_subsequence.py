@@ -31,13 +31,13 @@ class Solution:
         #     dp[f"{i}, {j}"] = max(skip_i, skip_j)
         #     return dp[f"{i}, {j}"]
         # return rec_lcs(0,0)
-        dp = [[0 for i in range(len(text1)+1)] for j in range(len(text2)+1)]
+        dp = [[0 for i in range(len(text1) + 1)] for j in range(len(text2) + 1)]
         lcs = 0
-        for i in range(1, len(text1)+1):
-            for j in range(1, len(text2)+1):
-                if text1[i-1] == text2[j-1]:
-                    dp[j][i] = dp[j-1][i-1]+1
-                    lcs = max(lcs, dp[j][i]) 
+        for i in range(1, len(text1) + 1):
+            for j in range(1, len(text2) + 1):
+                if text1[i - 1] == text2[j - 1]:
+                    dp[j][i] = dp[j - 1][i - 1] + 1
+                    lcs = max(lcs, dp[j][i])
                 else:
-                    dp[j][i]= max(dp[j-1][i], dp[j][i-1])
+                    dp[j][i] = max(dp[j - 1][i], dp[j][i - 1])
         return lcs

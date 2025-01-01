@@ -24,6 +24,8 @@ edges=[[0,1], [1,2], [2,3], [4,5]]
 Output:
 2
 """
+
+
 class Solution:
     def countComponents(self, n: int, edges) -> int:
         adj_list = {}
@@ -47,6 +49,6 @@ class Solution:
 
         for i in range(n):
             if visited[i] == 0:
-                count+=1
+                count += 1
                 dfs(i)
         return count

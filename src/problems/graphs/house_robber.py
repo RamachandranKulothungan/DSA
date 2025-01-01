@@ -24,6 +24,8 @@ Constraints:
 1 <= nums.length <= 100
 0 <= nums[i] <= 100
 """
+
+
 class Solution:
     def rob(self, nums) -> int:
         if len(nums) == 1:
@@ -34,6 +36,6 @@ class Solution:
         if len(nums) == 2:
             return dp[-1]
         for i in range(2, len(nums)):
-            dp.append(max(dp[i-1], dp[i-2]+nums[i]))
+            dp.append(max(dp[i - 1], dp[i - 2] + nums[i]))
         print(dp)
         return dp[-1]
