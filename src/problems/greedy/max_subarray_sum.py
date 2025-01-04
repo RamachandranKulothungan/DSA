@@ -17,9 +17,10 @@ Input: nums = [-1]
 Output: -1
 """
 
+
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
-        max_sum = -float('inf')
+        max_sum = -float("inf")
         curr_sum = 0
         for num in nums:
             curr_sum = curr_sum + num
