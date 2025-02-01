@@ -8,6 +8,7 @@ Input: height = [0,2,0,3,1,0,1,3,2,1]
 Output: 9
 """
 
+
 class Solution:
     def trap(self, height) -> int:
         max_water = 0
@@ -18,13 +19,18 @@ class Solution:
             while True:
                 if left_tower_stack:
                     if tower >= height[left_tower_stack[-1]]:
-                        curr_max_water += (min(tower, height[left_tower_stack[-1]]) - base_height) * (i - left_tower_stack[-1] - 1)
+                        curr_max_water += (
+                            min(tower, height[left_tower_stack[-1]]) - base_height
+                        ) * (i - left_tower_stack[-1] - 1)
                         base_height = height[left_tower_stack[-1]]
                         left_tower_stack.pop()
                     else:
-                        curr_max_water += (min(tower, height[left_tower_stack[-1]]) - base_height) * (i - left_tower_stack[-1] - 1)
+                        curr_max_water += (
+                            min(tower, height[left_tower_stack[-1]]) - base_height
+                        ) * (i - left_tower_stack[-1] - 1)
                         break
-                else: break
+                else:
+                    break
             max_water += curr_max_water
             left_tower_stack.append(i)
         return max_water

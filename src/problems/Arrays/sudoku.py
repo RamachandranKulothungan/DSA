@@ -9,19 +9,31 @@ Note:
 A Sudoku board (partially filled) could be valid but is not necessarily solvable.
 Only the filled cells need to be validated according to the mentioned rules.
 """
+
+
 def get_box_index(x, y):
-        if x <= 2:
-            if y <= 2: return 0
-            elif y <= 5: return 1
-            elif y <=8: return 2
-        elif x <= 5:
-            if y <= 2: return 3
-            elif y <= 5: return 4
-            elif y <=8: return 5
-        elif x <= 8:
-            if y <= 2: return 6
-            elif y <= 5: return 7
-            elif y <=8: return 8
+    if x <= 2:
+        if y <= 2:
+            return 0
+        elif y <= 5:
+            return 1
+        elif y <= 8:
+            return 2
+    elif x <= 5:
+        if y <= 2:
+            return 3
+        elif y <= 5:
+            return 4
+        elif y <= 8:
+            return 5
+    elif x <= 8:
+        if y <= 2:
+            return 6
+        elif y <= 5:
+            return 7
+        elif y <= 8:
+            return 8
+
 
 class Solution:
     def isValidSudoku(self, board: List[List[str]]) -> bool:
@@ -40,7 +52,9 @@ class Solution:
                     return False
                 box_index = get_box_index(i, j)
                 if board[i][j] in box_sets[box_index]:
-                    print(f"box {box_index} is invalid with {board[i][j]}: {box_sets[box_index]}")
+                    print(
+                        f"box {box_index} is invalid with {board[i][j]}: {box_sets[box_index]}"
+                    )
                     return False
                 row_sets[i].add(board[i][j])
                 col_sets[j].add(board[i][j])

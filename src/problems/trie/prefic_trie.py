@@ -29,12 +29,11 @@ Constraints:
 word and prefix are made up of lowercase English letters.
 """
 
-
-
-
 """
 Not optimum
 """
+
+
 class PrefixTree:
 
     def __init__(self, char="", end=False):
@@ -46,7 +45,7 @@ class PrefixTree:
         if not word:
             self.end = True
             return
-        next_word = word[1:] if len(word)>1 else ""
+        next_word = word[1:] if len(word) > 1 else ""
         if word[0] in self.children:
             childTree = self.children[word[0]]
         else:
@@ -57,7 +56,7 @@ class PrefixTree:
     def search(self, word: str) -> bool:
         if not word:
             return self.end
-        next_word = word[1:] if len(word)>1 else ""
+        next_word = word[1:] if len(word) > 1 else ""
         if word[0] in self.children:
             return self.children[word[0]].search(next_word)
         return False
@@ -65,8 +64,7 @@ class PrefixTree:
     def startsWith(self, prefix: str) -> bool:
         if not prefix:
             return True
-        next_word = prefix[1:] if len(prefix)>1 else ""
+        next_word = prefix[1:] if len(prefix) > 1 else ""
         if prefix[0] in self.children:
             return self.children[prefix[0]].startsWith(next_word)
         return False
-        
